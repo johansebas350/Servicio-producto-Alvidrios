@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alvidrios La 40 - Servicios y Productos</title>
+  <style>
+    body{
+      font-family: Arial, Helvetica, sans-serif;
+      margin:0;
+      padding:0;
+      background:#f5f7fa;
+    }
+    header{
+      background:#080805;
+      color:white;
+      padding:20px;
+      text-align:center;
+    }
+    .container{
+      max-width:900px;
+      margin:40px auto;
+      background:white;
+      padding:30px;
+      border-radius:10px;
+      box-shadow:0 4px 14px rgba(0,0,0,0.1);
+    }
+    h1,h2{
+      color:#003b71;
+    }
+    .info{
+      margin-bottom:20px;
+      line-height:1.6;
+    }
+    .producto{
+      background:#eef4ff;
+      padding:15px;
+      border-radius:8px;
+      margin-bottom:15px;
+      border-left:5px solid #003b71;
+    }
+    footer{
+      margin-top:40px;
+      text-align:center;
+      padding:15px;
+      background:#003b71;
+      color:white;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="hero">
+    <div class="hero-inner">
+      <div>
+        <h1>ALVIDRIOS LA 40</h1>
+        <p class="tag">Soluciones profesionales en vidrios, ventanas y espejos a medida</p>
+      </div>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#contact">Solicitar cotización</a>
+        <a class="btn btn-whatsapp" href="https://wa.me/573043024355?text=Hola%20Alvidrios%20La%2040,%20quiero%20una%20cotizaci%C3%B3n" target="_blank" rel="noopener">💬 WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+
+  <section id="about">
+    <h2>Quiénes somos</h2>
+    <p class="info">Alvidrios La 40 ofrece instalación, fabricación y mantenimiento en vidrios templados, ventanas en aluminio y espejos a medida. Atendemos hogares y negocios en Bogotá — Calidad, seguridad y buen precio.</p>
+  </section>
+
+  <!-- Gallery -->
+  <section id="gallery">
+    <h2>Fotos de productos</h2>
+    <div class="grid">
+      <figure class="card">
+        <img src="https://images.unsplash.com/photo-1505691723518-36a2b3f0d3ff?q=80&w=800&auto=format&fit=crop" alt="Vidrio templado" />
+        <figcaption>
+          <strong>Vidrio templado</strong>
+          <span>Puertas y divisiones</span>
+        </figcaption>
+      </figure>
+
+      <figure class="card">
+        <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=800&auto=format&fit=crop" alt="Ventanas aluminio" />
+        <figcaption>
+          <strong>Ventanas en aluminio</strong>
+          <span>Corredizas y batientes</span>
+        </figcaption>
+      </figure>
+
+      <figure class="card">
+        <img src="https://images.unsplash.com/photo-1582719478250-1d6f0bff3d8b?q=80&w=800&auto=format&fit=crop" alt="Espejos" />
+        <figcaption>
+          <strong>Espejos a medida</strong>
+          <span>Diseño y corte</span>
+        </figcaption>
+      </figure>
+
+      <figure class="card">
+        <img src="https://images.unsplash.com/photo-1598300050393-1a8e5a9d3e8b?q=80&w=800&auto=format&fit=crop" alt="Instalación" />
+        <figcaption>
+          <strong>Instalación</strong>
+          <span>Montaje y mantenimiento</span>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section id="pricing">
+    <h2>Tabla de precios</h2>
+    <div class="pricing">
+      <article class="price-card">
+        <h3>Básico</h3>
+        <p class="price">$49.900</p>
+        <ul>
+          <li>Corte estándar</li>
+          <li>Instalación simple</li>
+          <li>Soporte 5 días</li>
+        </ul>
+        <a class="btn btn-outline" href="#contact">Contratar</a>
+      </article>
+
+      <article class="price-card highlight">
+        <h3>Estándar</h3>
+        <p class="price">$89.900</p>
+        <ul>
+          <li>Vidrio templado</li>
+          <li>Medición a domicilio</li>
+          <li>Garantía 6 meses</li>
+        </ul>
+        <a class="btn btn-primary" href="#contact">Contratar</a>
+      </article>
+
+      <article class="price-card">
+        <h3>Full</h3>
+        <p class="price">$149.900</p>
+        <ul>
+          <li>Personalización total</li>
+          <li>Instalación prioritaria</li>
+          <li>Soporte 24/7</li>
+        </ul>
+        <a class="btn btn-outline" href="#contact">Contratar</a>
+      </article>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <h2>Contacto y cotización</h2>
+    <div class="contact-grid">
+      <form id="contactForm" class="form" novalidate>
+        <label>Nombre completo<input type="text" name="name" required /></label>
+        <label>Teléfono<input type="tel" name="phone" required /></label>
+        <label>Correo electrónico<input type="email" name="email" required /></label>
+        <label>Servicio de interés
+          <select name="service">
+            <option value="templado">Vidrio templado</option>
+            <option value="ventanas">Ventanas en aluminio</option>
+            <option value="espejos">Espejos a medida</option>
+            <option value="reparacion">Instalación / Reparación</option>
+          </select>
+        </label>
+        <label>Mensaje<textarea name="message" rows="4"></textarea></label>
+        <div class="form-row">
+          <button class="btn btn-primary" type="submit">Enviar solicitud</button>
+          <button class="btn btn-outline" type="button" id="resetBtn">Limpiar</button>
+        </div>
+        <div id="formMsg" aria-live="polite" class="form-msg"></div>
+      </form>
+
+      <aside class="contact-info">
+        <h3>Contáctanos</h3>
+        <p><strong>Teléfono:</strong> 3043024355</p>
+        <p><strong>Dirección:</strong> Calle 40 Sur # 93 A 03, Kennedy</p>
+        <p><strong>Correo:</strong> alvi40@gmail.com</p>
+        <p><strong>Horario:</strong> Lun - Sab, 8:00am - 6:00pm</p>
+
+        <div class="whatsapp-quick">
+          <a class="btn btn-whatsapp" href="https://wa.me/573043024355?text=Hola%20quiero%20cotizaci%C3%B3n" target="_blank">Enviar por WhatsApp</a>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container small">
+    <p>© 2025 Alvidrios La 40 — Todos los derechos reservados</p>
+  </div>
+</footer>
+
+<!-- Scripts: simple gallery lightbox + animations -->
+<script>
+  // Simple lightbox for gallery
+  document.querySelectorAll('#gallery .card img').forEach(img=>{
+    img.addEventListener('click', ()=>{
+      const src = img.src;
+      const overlay = document.createElement('div');
+      overlay.className='lightbox';
+      overlay.innerHTML = `<img src="${src}" alt="">`;
+      overlay.addEventListener('click', ()=> overlay.remove());
+      document.body.appendChild(overlay);
+      overlay.focus();
+    })
+  })
+
+  // Form handling (fake submission)
+  const form = document.getElementById('contactForm');
+  const formMsg = document.getElementById('formMsg');
+  form.addEventListener('submit', (e)=>{
+    e.preventDefault();
+    const data = new FormData(form);
+    // basic validation
+    if(!data.get('name') || !data.get('phone') || !data.get('email')){
+      formMsg.textContent = 'Por favor complete los campos obligatorios.'; formMsg.classList.add('error'); return;
+    }
+    // simulate sending: open mailto as fallback
+    const subject = encodeURIComponent('Solicitud de cotización - Alvidrios La 40');
+    const body = encodeURIComponent(`Nombre: ${data.get('name')}\nTel: ${data.get('phone')}\nCorreo: ${data.get('email')}\nServicio: ${data.get('service')}\nMensaje: ${data.get('message')}`);
+    // show success message
+    formMsg.textContent = 'Solicitud enviada. Abrimos su cliente de correo para finalizar el envío.'; formMsg.classList.remove('error');
+    setTimeout(()=>{
+      window.location.href = `mailto:alvi40@gmail.com?subject=${subject}&body=${body}`;
+    },500);
+  })
+  document.getElementById('resetBtn').addEventListener('click', ()=>{ form.reset(); formMsg.textContent=''; })
+
+  // Small entrance animations (stagger)
+  document.addEventListener('DOMContentLoaded', ()=>{
+    document.querySelectorAll('.container > section').forEach((s,i)=>{
+      s.style.opacity=0; s.style.transform='translateY(16px)';
+      setTimeout(()=>{ s.style.transition='all 500ms cubic-bezier(.2,.9,.3,1)'; s.style.opacity=1; s.style.transform='translateY(0)'; }, 120*i);
+    })
+  })
+</script>
+
+</body>
+</html>
