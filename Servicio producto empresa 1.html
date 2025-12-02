@@ -5,242 +5,261 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Alvidrios La 40 - Servicios y Productos</title>
   <style>
+    *{ box-sizing:border-box; margin:0; padding:0; }
     body{
       font-family: Arial, Helvetica, sans-serif;
-      margin:0;
-      padding:0;
-      background:#f5f7fa;
+      background: url('https://images.unsplash.com/photo-1509099836639-18ba1795216d?q=80&w=1600&auto=format&fit=crop') no-repeat center center fixed;
+      background-size: cover;
+      color:#0a2a43;
     }
     header{
-      background:#080805;
+      background:rgba(159, 166, 173, 0.85);
       color:white;
-      padding:20px;
+      padding:25px 10px;
       text-align:center;
+      backdrop-filter: blur(5px);
     }
+    h1,h2,h3{ color:#003b71; }
     .container{
-      max-width:900px;
+      max-width:1100px;
       margin:40px auto;
-      background:white;
+      background:rgba(255,255,255,0.92);
       padding:30px;
+      border-radius:15px;
+      box-shadow:0 6px 25px rgba(0,0,0,0.25);
+      backdrop-filter: blur(8px);
+    }
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+      gap:20px;
+    }
+    .card{
+      background:white;
       border-radius:10px;
-      box-shadow:0 4px 14px rgba(0,0,0,0.1);
+      overflow:hidden;
+      box-shadow:0 4px 12px rgba(0,0,0,0.15);
+      transition:transform .3s;
+      cursor:pointer;
     }
-    h1,h2{
-      color:#003b71;
+    .card img{
+      width:100%; height:170px; object-fit:cover;
     }
-    .info{
-      margin-bottom:20px;
-      line-height:1.6;
-    }
-    .producto{
-      background:#eef4ff;
+    .card:hover{ transform:scale(1.04); }
+    .price-card{
+      background:white;
+      border-left:5px solid #90a5b9;
       padding:15px;
-      border-radius:8px;
-      margin-bottom:15px;
-      border-left:5px solid #003b71;
+      border-radius:10px;
     }
+    .price{ font-size:1.5rem; font-weight:700; color:#003b71; }
     footer{
-      margin-top:40px;
       text-align:center;
       padding:15px;
-      background:#003b71;
-      color:white;
+      background:#000408;
+      color:rgb(167, 152, 152);
+      margin-top:40px;
     }
-  </style>
+  
+    /* Iconos SVG y estilos para servicios */
+    .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-top:12px}
+    .service-item{background:rgba(255,255,255,0.98);border-radius:12px;padding:18px;display:flex;gap:14px;align-items:center;box-shadow:0 6px 18px rgba(2,6,23,0.06);transition:transform .25s,box-shadow .25s}
+    .service-item:hover{transform:translateY(-6px);box-shadow:0 12px 30px rgba(2,6,23,0.12)}
+    .service-icon{width:64px;height:64px;flex:0 0 64px;display:flex;align-items:center;justify-content:center}
+    .service-content h4{margin:0 0 6px;font-size:1.05rem;color:#002a4a}
+    .service-content p{margin:0;color:#334155}
+
+    /* Small responsive tweaks */
+    @media (max-width:800px){
+      .service-item{padding:12px}
+      .service-icon{width:56px;height:56px}
+    }
+
+
+    .service-item{position:relative;overflow:hidden}
+    .service-item::after{
+      content:"";
+      position:absolute; inset:0;
+      background:linear-gradient(105deg,rgba(255,255,255,0) 40%,rgba(255,255,255,0.5) 50%,rgba(255,255,255,0) 60%);
+      transform:translateX(-120%);
+      transition:transform .6s ease;
+    }
+    .service-item:hover::after{transform:translateX(120%);}    
+</style>
 </head>
 <body>
 
 <header>
-  <div class="hero">
-    <div class="hero-inner">
-      <div>
-        <h1>ALVIDRIOS LA 40</h1>
-        <p class="tag">Soluciones profesionales en vidrios, ventanas y espejos a medida</p>
-      </div>
-      <div class="cta-row">
-        <a class="btn btn-primary" href="#contact">Solicitar cotización</a>
-        <a class="btn btn-whatsapp" href="https://wa.me/573043024355?text=Hola%20Alvidrios%20La%2040,%20quiero%20una%20cotizaci%C3%B3n" target="_blank" rel="noopener">💬 WhatsApp</a>
-      </div>
-    </div>
-  </div>
+  <h1>ALVIDRIOS LA 40</h1>
+  <p>Soluciones profesionales en vidrios, ventanas y espejos a medida</p>
+<nav style="background:#001f38; padding:10px 0; text-align:center;">
+  <a href="#about" style="color:rgb(182, 195, 224); margin:0 15px; text-decoration:none;">Quiénes Somos</a>
+  <a href="#services" style="color:rgb(183, 191, 212); margin:0 15px; text-decoration:none;">Servicios</a>
+  <a href="#gallery" style="color:rgb(176, 184, 206); margin:0 15px; text-decoration:none;">Productos</a>
+  <a href="#pricing" style="color:rgb(180, 191, 207); margin:0 15px; text-decoration:none;">Precios</a>
+  <a href="#contact" style="color:rgb(180, 188, 211); margin:0 15px; text-decoration:none;">Contacto</a>
+</nav>
 </header>
 
 <main class="container">
 
-  <section id="about">
-    <h1>Quiénes somos</h1>
-    <head>
-    <p class="info">Alvidrios La 40 ofrece instalación, fabricación y mantenimiento en vidrios templados, ventanas en aluminio y espejos a medida. Atendemos hogares y negocios en Bogotá — Calidad, seguridad y buen precio.</p>
+  <section>
+    <h2>Quiénes somos</h2>
+    <p>
+      Ofrecemos instalación, fabricación y mantenimiento en vidrios templados, ventanas en aluminio y espejos a medida.
+      Calidad, seguridad y precios competitivos en Bogotá.
+    </p>
   </section>
 
-  <!-- Gallery -->
-  <section id="gallery">
+  <section>
     <h2>Fotos de productos</h2>
     <div class="grid">
-      <figure class="card">
-        <img src="https://images.unsplash.com/photo-1505691723518-36a2b3f0d3ff?q=80&w=800&auto=format&fit=crop" alt="Vidrio templado" />
-        <figcaption>
-          <strong>Vidrio templado</strong>
-          <strong>Puertas y divisiones</strong>
-        </figcaption>
-      </figure>
-
-      <figure class="card">
-        <img src="https://hips.hearstapps.com/ellees.h-cdn.co/assets/15/37/1024x1024/1024x1024--ab33-83843e328df1elledeco-casas-casa-beyonce-super-bowl-12392360-1-esl-es-la-mansion-de-beyonce-jpg.jpg?resize=640:*" alt="Ventanas aluminio" />
-        <figcaption>
-          <strong>Ventanas en aluminio</strong>
-          <span>Corredizas y batientes</span>
-        </figcaption>
-      </figure>
-
-      <figure class="card">
-        <img src="https://images.unsplash.com/photo-1582719478250-1d6f0bff3d8b?q=80&w=800&auto=format&fit=crop" alt="Espejos" />
-        <figcaption>
-          <strong>Espejos a medida</strong>
-          <span>Diseño y corte</span>
-        </figcaption>
-      </figure>
-
-      <figure class="card">
-        <img src="https://images.unsplash.com/photo-1598300050393-1a8e5a9d3e8b?q=80&w=800&auto=format&fit=crop" alt="Instalación" />
-        <figcaption>
-          <strong>Instalación</strong>
-          <span>Montaje y mantenimiento</span>
-        </figcaption>
-      </figure>
+      <figure class="card"><img src="https://images.unsplash.com/photo-1523413651479-597eb2da0ad6?q=80&w=800&auto=format&fit=crop"><figcaption><strong>Puertas de vidrio templado</strong></figcaption></figure>
+      <figure class="card"><img src="https://images.unsplash.com/photo-1540573133985-87b6da6d54a9?q=80&w=800&auto=format&fit=crop"><figcaption><strong>Ventanas de aluminio</strong></figcaption></figure>
+      <figure class="card"><img src="https://images.unsplash.com/photo-1582719478250-1d6f0bff3d8b?q=80&w=800&auto=format&fit=crop"><figcaption><strong>Espejos modernos</strong></figcaption></figure>
+      <figure class="card"><img src="https://images.unsplash.com/photo-1598300050393-1a8e5a9d3e8b?q=80&w=800&auto=format&fit=crop"><figcaption><strong>Instalaciones</strong></figcaption></figure>
     </div>
   </section>
 
-  <!-- Pricing -->
-  <section id="pricing">
+  <section>
     <h2>Tabla de precios</h2>
-    <div class="pricing">
-      <article class="price-card">
-        <h3>Básico</h3>
-        <p class="price">$50.000</p>
-        <ul>
-          <li>Corte estándar</li>
-          <li>Instalación simple</li>
-          <li>Soporte 5 días</li>
-        </ul>
-        <a class="btn btn-outline" href="#contact">Contratar</a>
-      </article>
-
-      <article class="price-card highlight">
-        <h3>Estándar</h3>
-        <p class="price">$90.000</p>
-        <ul>
-          <li>Vidrio templado</li>
-          <li>Medición a domicilio</li>
-          <li>Corte a medida</li>
-          <li>Garantía 10 meses</li>
-        </ul>
-        <a class="btn btn-primary" href="#contact">Contratar</a>
-      </article>
-
-      <article class="price-card">
-        <h3>Full</h3>
-        <p class="price">$150.000</p>
-        <ul>
-          <li>Personalización de espejo vidrio al corte</li>
-          <li>Instalación personalizada</li>
-          <li>Soporte 24/7</li>
-        </ul>
-        <a class="btn btn-outline" href="#contact">Contratar</a>
-      </article>
+    <div class="grid">
+      <article class="price-card"><h3>Básico</h3><p class="price">$50.000</p></article>
+      <article class="price-card"><h3>Estándar</h3><p class="price">$90.000</p></article>
+      <article class="price-card"><h3>Full</h3><p class="price">$150.000</p></article>
     </div>
   </section>
 
-  <!-- Contact -->
-  <section id="contact">
-    <h2>Contacto y cotización</h2>
-    <div class="contact-grid">
-      <form id="contactForm" class="form" novalidate>
-        <label>Nombre completo<input type="text" name="name" required /></label>
-        <label>Teléfono<input type="tel" name="phone" required /></label>
-        <label>Correo electrónico<input type="email" name="email" required /></label>
-        <label>Servicio de interés
-          <select name="service">
-            <option value="templado">Vidrio templado</option>
-            <option value="ventanas">Ventanas en aluminio</option>
-            <option value="espejos">Espejos a medida</option>
-            <option value="reparacion">Instalación / Reparación</option>
-          </select>
-        </label>
-        <label>Mensaje<textarea name="message" rows="4"></textarea></label>
-        <div class="form-row">
-          <button class="btn btn-primary" type="submit">Enviar solicitud</button>
-          <button class="btn btn-outline" type="button" id="resetBtn">Limpiar</button>
-        </div>
-        <div id="formMsg" aria-live="polite" class="form-msg"></div>
-      </form>
+<section id="services" style="margin:40px 0;">
+  <h2>Servicios</h2>
+  <p style="color:#334155; margin:6px 0 12px;">Instalamos con garantía, atención rápida y medición a domicilio.</p>
+  <div class="services-grid">
 
-      <aside class="contact-info">
-        <h3>Contáctanos</h3>
-        <p><strong>Teléfono:</strong> 3043024355</p>
-        <p><strong>Dirección:</strong> Calle 40 Sur # 93 A 03, Kennedy</p>
-        <p><strong>Correo:</strong> alvi40@gmail.com</p>
-        <p><strong>Horario:</strong> Lun - Sab, 8:00am - 7:00pm</p>
-
-        <div class="whatsapp-quick">
-          <a class="btn btn-whatsapp" href="https://wa.me/3125374015?text=Hola%20quiero%20cotizaci%C3%B3n" target="_blank">Enviar por WhatsApp</a>
+    <div class="service-item">
+      <div class="service-icon" aria-hidden="true">
+        <!-- Vidrio templado: SVG realista (cristal) -->
+        <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Vidrio templado">
+          <defs>
+            <linearGradient id="g1" x1="0" x2="1">
+              <stop offset="0" stop-color="#e6f4ff"/>
+              <stop offset="1" stop-color="#bfe6ff"/>
+            </linearGradient>
+            <linearGradient id="g2" x1="0" x2="1">
+              <stop offset="0" stop-color="#ffffff" stop-opacity="0.9"/>
+              <stop offset="1" stop-color="#ffffff" stop-opacity="0.2"/>
+            </linearGradient>
+          </defs>
+          <rect x="6" y="6" width="52" height="52" rx="6" fill="url(#g1)" stroke="#8cc6ff" stroke-opacity="0.35"/>
+          <path d="M14 50 L50 14" stroke="#ffffff" stroke-opacity="0.35" stroke-width="2"/>
+          <path d="M18 14 L50 46" stroke="#ffffff" stroke-opacity="0.18" stroke-width="6"/>
+          <rect x="10" y="10" width="44" height="12" rx="3" fill="url(#g2)" transform="rotate(-18 10 10)" opacity="0.65"/>
+        </svg>
+      </div>
+      <div class="service-content">$1
+        <div style="margin:6px 0; font-size:.8rem; color:#0a3b5e;">
+          ✔ Instalación &nbsp;✔ Garantía &nbsp;✔ A domicilio
         </div>
-      </aside>
+        <a href="#contact" style="display:inline-block; margin-top:8px; background:#0070b0; color:white; padding:6px 12px; border-radius:6px; font-size:.8rem; text-decoration:none;">Cotizar</a>
+      </div>
     </div>
-  </section>
+
+    <div class="service-item">
+      <div class="service-icon" aria-hidden="true">
+        <!-- Ventanas aluminio: minimalista azul -->
+        <svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ventanas aluminio">
+          <rect x="8" y="8" width="48" height="48" rx="6" fill="#eaf6ff" stroke="#cbeefc"/>
+          <rect x="14" y="14" width="36" height="36" rx="2" fill="#ffffff" stroke="#c7e3ff"/>
+          <path d="M32 14 V50 M14 32 H50" stroke="#0070b0" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="service-content">$1
+        <div style="margin:6px 0; font-size:.8rem; color:#0a3b5e;">
+          ✔ Instalación &nbsp;✔ Garantía &nbsp;✔ A domicilio
+        </div>
+        <a href="#contact" style="display:inline-block; margin-top:8px; background:#0070b0; color:white; padding:6px 12px; border-radius:6px; font-size:.8rem; text-decoration:none;">Cotizar</a>
+      </div>
+    </div>
+
+    <div class="service-item">
+      <div class="service-icon" aria-hidden="true">
+        <!-- Espejos: cristal con reflejo -->
+        <svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Espejos">
+          <defs>
+            <linearGradient id="m1" x1="0" x2="1">
+              <stop offset="0" stop-color="#ffffff" stop-opacity="0.9"/>
+              <stop offset="1" stop-color="#dff4ff" stop-opacity="0.7"/>
+            </linearGradient>
+          </defs>
+          <rect x="8" y="8" width="48" height="48" rx="6" fill="url(#m1)" stroke="#bfeaff"/>
+          <circle cx="44" cy="20" r="6" fill="#ffffff" fill-opacity="0.7"/>
+          <rect x="14" y="20" width="28" height="28" rx="4" fill="#eaf8ff"/>
+        </svg>
+      </div>
+      <div class="service-content">$1
+        <div style="margin:6px 0; font-size:.8rem; color:#0a3b5e;">
+          ✔ Instalación &nbsp;✔ Garantía &nbsp;✔ A domicilio
+        </div>
+        <a href="#contact" style="display:inline-block; margin-top:8px; background:#0070b0; color:white; padding:6px 12px; border-radius:6px; font-size:.8rem; text-decoration:none;">Cotizar</a>
+      </div>
+    </div>
+
+    <div class="service-item">
+      <div class="service-icon" aria-hidden="true">
+        <!-- Reparaciones: minimal herramienta azul -->
+        <svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Reparaciones">
+          <rect x="8" y="8" width="48" height="48" rx="8" fill="#eaf6ff" stroke="#cbeefc"/>
+          <path d="M20 44 L28 36 L36 44 L44 36" stroke="#00689a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <path d="M28 28 L36 36" stroke="#00689a" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="service-content">$1
+        <div style="margin:6px 0; font-size:.8rem; color:#0a3b5e;">
+          ✔ Instalación &nbsp;✔ Garantía &nbsp;✔ A domicilio
+        </div>
+        <a href="#contact" style="display:inline-block; margin-top:8px; background:#0070b0; color:white; padding:6px 12px; border-radius:6px; font-size:.8rem; text-decoration:none;">Cotizar</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="map" style="margin:40px 0;">
+  <h2>Ubicación</h2>
+  <p style="margin-bottom:8px;color:#334155">Calle 40 Sur # 93 A 03, Kennedy — Bogotá</p>
+  <iframe src="https://www.google.com/maps?q=Calle%2040%20Sur%20%2393%20A%2003%2C%20Kennedy%2C%20Bogota&output=embed" width="100%" height="320" style="border:0; border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,0.2);" allowfullscreen="" loading="lazy"></iframe>
+</section>
+ 
+
+<section id="contact" style="margin:40px 0;">
+  <h2>Contacto</h2>
+  <form action="https://wa.me/573043024355" method="GET">
+    <input type="text" name="text" placeholder="Escribe tu solicitud aquí" style="width:100%; padding:10px; border-radius:10px; margin-bottom:10px;">
+    <button type="submit" style="padding:12px 20px; background:#25D366; color:white; border:none; border-radius:10px; cursor:pointer; font-size:1rem;">Enviar a WhatsApp</button>
+  </form>
+</section>
 
 </main>
 
 <footer>
-  <div class="container small">
-    <p>© 2025 Alvidrios La 40 — Todos los derechos reservados</p>
-  </div>
+  <p>© 2025 Alvidrios La 40 — Todos los derechos reservados</p>
 </footer>
 
-<!-- Scripts: simple gallery lightbox + animations -->
+<a href="https://wa.me/573043024355" style="position:fixed; bottom:20px; right:20px; background:#25D366; color:white; padding:15px; border-radius:50%; font-size:24px; text-decoration:none; box-shadow:0 4px 12px rgba(0,0,0,0.2);">💬</a>
+
 <script>
-  // Simple lightbox for gallery
-  document.querySelectorAll('#gallery .card img').forEach(img=>{
-    img.addEventListener('click', ()=>{
-      const src = img.src;
-      const overlay = document.createElement('div');
-      overlay.className='lightbox';
-      overlay.innerHTML = `<img src="${src}" alt="">`;
-      overlay.addEventListener('click', ()=> overlay.remove());
-      document.body.appendChild(overlay);
-      overlay.focus();
+  // Smooth scroll for nav links
+  document.querySelectorAll('nav a').forEach(a=>{
+    a.addEventListener('click', (e)=>{
+      e.preventDefault();
+      const id = a.getAttribute('href').slice(1);
+      const el = document.getElementById(id);
+      if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
     })
-  })
+  });
 
-  // Form handling (fake submission)
-  const form = document.getElementById('contactForm');
-  const formMsg = document.getElementById('formMsg');
-  form.addEventListener('submit', (e)=>{
-    e.preventDefault();
-    const data = new FormData(form);
-    // basic validation
-    if(!data.get('name') || !data.get('phone') || !data.get('email')){
-      formMsg.textContent = 'Por favor complete los campos obligatorios.'; formMsg.classList.add('error'); return;
-    }
-    // simulate sending: open mailto as fallback
-    const subject = encodeURIComponent('Solicitud de cotización - Alvidrios La 40');
-    const body = encodeURIComponent(`Nombre: ${data.get('name')}\nTel: ${data.get('phone')}\nCorreo: ${data.get('email')}\nServicio: ${data.get('service')}\nMensaje: ${data.get('message')}`);
-    // show success message
-    formMsg.textContent = 'Solicitud enviada. Abrimos su cliente de correo para finalizar el envío.'; formMsg.classList.remove('error');
-    setTimeout(()=>{
-      window.location.href = `mailto:alvi40@gmail.com?subject=${subject}&body=${body}`;
-    },500);
-  })
-  document.getElementById('resetBtn').addEventListener('click', ()=>{ form.reset(); formMsg.textContent=''; })
-
-  // Small entrance animations (stagger)
-  document.addEventListener('DOMContentLoaded', ()=>{
-    document.querySelectorAll('.container > section').forEach((s,i)=>{
-      s.style.opacity=0; s.style.transform='translateY(16px)';
-      setTimeout(()=>{ s.style.transition='all 500ms cubic-bezier(.2,.9,.3,1)'; s.style.opacity=1; s.style.transform='translateY(0)'; }, 120*i);
-    })
-  })
+  // Accessibility: focus outline for service items on keyboard
+  document.querySelectorAll('.service-item').forEach(s=>{ s.setAttribute('tabindex','0'); s.addEventListener('keypress', (e)=>{ if(e.key==='Enter') s.click(); }) });
 </script>
-
 </body>
 </html>
+
